@@ -1,0 +1,54 @@
+body{
+  background-color:#D9D7D4;
+}
+#mainbox{
+  width: 1010px;
+  height: 600px;
+  background-color: #B5B1AC;
+  margin: 0 auto;
+  border-radius:5px;
+  margin-top:30px;
+}
+#joint{
+  position: relative;
+  width: 250px;
+  height: 60px;
+  background-color: #80560A;
+  left: 360px;
+  top: 520px;
+}
+#filter{
+  position: relative;
+  width:10px;
+  height: 60px;
+  background-color: black;
+  left:200px;
+}
+#start_button{
+  width:200px;
+  height: 30px;
+  margin: 0 auto;
+  background-text: "Start";
+  background-color: inherit;
+}
+#weed{
+  position: absolute;
+  visibility: hidden;
+  width: 50px;
+  height: 60px;
+}
+#score{
+  position: absolute;
+  left: 150px;
+  top: 6px;
+  font-size: 25px;
+}
+#remaining{
+  position: absolute;
+  top: 6px;
+  left: 900px;
+  font-size: 25px;
+}
+#remaining_num{
+  color:black;
+}
