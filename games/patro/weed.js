@@ -1,4 +1,18 @@
 var glo1=0;
+function setQuote(){
+  var random_num = Math.floor((Math.random() * 10));
+  if(random_num==0) document.getElementById("quote").innerHTML="Oh god! I feel so high";
+  if(random_num==1) document.getElementById("quote").innerHTML="I feel like I am floating";
+  if(random_num==2) document.getElementById("quote").innerHTML="I think I am Sachin";
+  if(random_num==3) document.getElementById("quote").innerHTML="I will get 10SGPA this sem";
+  if(random_num==4) document.getElementById("quote").innerHTML="Patro! Patro! Patro!";
+  if(random_num==5) document.getElementById("quote").innerHTML="Life is weed";
+  if(random_num==6) document.getElementById("quote").innerHTML="I am weed god";
+  if(random_num==7) document.getElementById("quote").innerHTML="Trippy! And so slippy!";
+  if(random_num==8) document.getElementById("quote").innerHTML="Going to Salua again";
+  if(random_num==9) document.getElementById("quote").innerHTML="Am I high?! Hell yeah!";
+}
+
 function set(){
   $("#weed").css("top","30px");
   remaining_temp = $("#remaining_num").text();
@@ -101,6 +115,7 @@ function control(){
           document.getElementById("remaining_num").innerHTML=remaining_temp.toString();
         }
         //alert("Weed = "+glo1+" Joint = "+glo2);
+        setQuote();
         clearInterval(delay);
         set();
         //control();

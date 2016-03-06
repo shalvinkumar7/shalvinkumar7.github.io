@@ -52,3 +52,10 @@ body{
 #remaining_num{
   color:black;
 }
+#quote{
+  position: absolute;
+  left: 250px;
+  top: 6px;
+  font-size: 25px;
+  color: green;
+}
