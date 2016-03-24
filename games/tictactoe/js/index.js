@@ -1,0 +1,860 @@
+$(document).ready(function() {
+  var chance = -1;
+  var choice = "";
+  var pos = [0,0,0,0,0,0,0,0,0];
+  var pos2 = [0,0,0,0,0,0,0,0,0];
+  var matchstart = false;
+  var comp_chance = -1;
+  var comp_choice;
+
+  $("#choice1").click(function() {
+    $("#choice1").hide();
+    $("#choice2").hide();
+    choice = "X";
+    chance = 1;
+    comp_chance = 0;
+    comp_choice = "O";
+    $("#choicemade").text("You will play 'X'");
+  });
+
+  $("#choice2").click(function() {
+    $("#choice1").hide();
+    $("#choice2").hide();
+    choice = "O";
+    chance = 0;
+    comp_chance = 1;
+    comp_choice = "X";
+    $("#choicemade").text("You will play 'O'");
+  });
+  $("#play").click(function() {
+    if ($("#choice1").is(':visible')) {
+      alert("Make a choice first!");
+    }
+    else {
+      $(this).hide();
+      matchstart = true;
+      if(comp_chance===0){
+        comp_chance =1;
+        chance = 0;
+        pos2[4] = 1;
+        $("#five").html('<font id="dummy">' + comp_choice + '</font>');
+      }
+    }
+  });
+
+  $("#one").click(function(){
+    if(matchstart && chance === 0 && comp_chance === 1 && pos2[0] === 0){
+      $(this).html('<font id="dummy">' + choice + '</font>');
+      pos[0] = 1;
+      chance = 1;
+      console.log(pos);
+      console.log(pos2);
+      ai();
+    }
+  });
+  $("#two").click(function(){
+    if(matchstart && chance === 0 && comp_chance === 1 && pos2[1] === 0){
+      $(this).html('<font id="dummy">' + choice + '</font>');
+      pos[1] = 1;
+      chance = 1;
+      console.log(pos);
+      console.log(pos2);
+      ai();
+    }
+  });
+  $("#three").click(function(){
+    if(matchstart && chance === 0 && comp_chance === 1 && pos2[2] === 0){
+      $(this).html('<font id="dummy">' + choice + '</font>');
+      pos[2] = 1;
+      chance = 1;
+      console.log(pos);
+      console.log(pos2);
+      ai();
+    }
+  });
+  $("#four").click(function(){
+    if(matchstart && chance === 0 && comp_chance === 1 && pos2[3] === 0){
+      $(this).html('<font id="dummy">' + choice + '</font>');
+      pos[3] = 1;
+      chance = 1;
+      console.log(pos);
+      console.log(pos2);
+      ai();
+    }
+  });
+  $("#five").click(function(){
+    if(matchstart && chance === 0 && comp_chance === 1 && pos2[4] === 0){
+      $(this).html('<font id="dummy">' + choice + '</font>');
+      pos[4] = 1;
+      chance = 1;
+      console.log(pos);
+      console.log(pos2);
+      ai();
+    }
+  });
+  $("#six").click(function(){
+    if(matchstart && chance === 0 && comp_chance === 1 && pos2[5] === 0){
+      $(this).html('<font id="dummy">' + choice + '</font>');
+      pos[5] = 1;
+      chance = 1;
+      console.log(pos);
+      console.log(pos2);
+      ai();
+    }
+  });
+  $("#seven").click(function(){
+    if(matchstart && chance === 0 && comp_chance === 1 && pos2[6] === 0){
+      $(this).html('<font id="dummy">' + choice + '</font>');
+      pos[6] = 1;
+      chance = 1;
+      console.log(pos);
+      console.log(pos2);
+      ai();
+    }
+  });
+  $("#eight").click(function(){
+    if(matchstart && chance === 0 && comp_chance === 1 && pos2[7] === 0){
+      $(this).html('<font id="dummy">' + choice + '</font>');
+      pos[7] = 1;
+      chance = 1;
+      console.log(pos);
+      console.log(pos2);
+      ai();
+    }
+  });
+  $("#nine").click(function(){
+    if(matchstart && chance === 0 && comp_chance === 1 && pos2[8] === 0){
+      $(this).html('<font id="dummy">' + choice + '</font>');
+      pos[8] = 1;
+      chance = 1;
+      console.log(pos);
+      console.log(pos2);
+      ai();
+    }
+  });
+  
+  function ai(){
+      
+    //Win-Columns
+      //Column-1
+      if(pos2[0]===1&&pos2[1]===1&&pos[2]===0){
+        $("#three").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[2]=1;
+        chance=0;
+      }
+      else if(pos2[0]===1&&pos[1]===0&&pos2[2]===1){
+        $("#two").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[1]=1;
+        chance=0;
+      }
+      else if(pos[0]===0&&pos2[1]===1&&pos2[2]===1){
+        $("#one").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[0]=1;
+        chance=0;
+      }
+      //Column-2
+      else if(pos2[3]===1&&pos2[4]===1&&pos[5]===0){
+        $("#six").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[5]=1;
+        chance=0;
+      }
+      else if(pos2[3]===1&&pos[4]===0&&pos2[5]===1){
+        $("#five").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[4]=1;
+        chance=0;
+      }
+      else if(pos[3]===0&&pos2[4]===1&&pos2[5]===1){
+        $("#four").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[3]=1;
+        chance=0;
+      }
+      //Column-3
+      else if(pos2[6]===1&&pos2[7]===1&&pos[8]===0){
+        $("#nine").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[8]=1;
+        chance=0;
+      }
+      else if(pos2[6]===1&&pos[7]===0&&pos2[8]===1){
+        $("#eight").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[7]=1;
+        chance=0;
+      }
+      else if(pos[6]===0&&pos2[7]===1&&pos2[8]===1){
+        $("#seven").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[6]=1;
+        chance=0;
+      }
+    
+    //Win Rows
+      //Row-1
+      else if(pos2[0]===1&&pos2[3]===1&&pos[6]===0){
+        $("#seven").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[6]=1;
+        chance=0;
+      }
+      else if(pos2[0]===1&&pos[3]===0&&pos2[6]===1){
+        $("#four").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[3]=1;
+        chance=0;
+      }
+      else if(pos[0]===0&&pos2[3]===1&&pos2[6]===1){
+        $("#one").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[0]=1;
+        chance=0;
+      }
+      //Row-2
+      else if(pos2[1]===1&&pos2[4]===1&&pos[7]===0){
+        $("#eight").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[7]=1;
+        chance=0;
+      }
+      else if(pos2[1]===1&&pos[4]===0&&pos2[7]===1){
+        $("#five").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[4]=1;
+        chance=0;
+      }
+      else if(pos[1]===0&&pos2[4]===1&&pos2[7]===1){
+        $("#two").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[1]=1;
+        chance=0;
+      }
+      //Row-3
+      else if(pos2[2]===1&&pos2[5]===1&&pos[8]===0){
+        $("#nine").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[8]=1;
+        chance=0;
+      }
+      else if(pos2[2]===1&&pos[5]===0&&pos2[8]===1){
+        $("#six").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[5]=1;
+        chance=0;
+      }
+      else if(pos[2]===0&&pos2[5]===1&&pos2[8]===1){
+        $("#three").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[2]=1;
+        chance=0;
+      }
+    
+    //Win-Diagonals
+      //Left-Right
+      else if(pos2[0]===1&&pos2[4]===1&&pos[8]===0){
+        $("#nine").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[8]=1;
+        chance=0;
+      }
+      else if(pos2[0]===1&&pos[4]===0&&pos2[8]===1){
+        $("#five").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[4]=1;
+        chance=0;
+      }
+      else if(pos[0]===0&&pos2[4]===1&&pos2[8]===1){
+        $("#one").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[0]=1;
+        chance=0;
+      }
+      //Right-left
+      else if(pos2[6]===1&&pos2[4]===1&&pos[2]===0){
+        $("#three").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[2]=1;
+        chance=0;
+      }
+      else if(pos2[6]===1&&pos[4]===0&&pos2[2]===1){
+        $("#five").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[4]=1;
+        chance=0;
+      }
+      else if(pos[6]===0&&pos2[4]===1&&pos2[2]===1){
+        $("#seven").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[6]=1;
+        chance=0;
+      }
+    // 8888888888888888888888888888888888888888888888888888888888888888888888888888
+    //Kill-Columns
+      //Column-1
+      else if(pos[0]===1&&pos[1]===1&&pos2[2]===0){
+        $("#three").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[2]=1;
+        chance=0;
+      }
+      else if(pos[0]===1&&pos2[1]===0&&pos[2]===1){
+        $("#two").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[1]=1;
+        chance=0;
+      }
+      else if(pos2[0]===0&&pos[1]===1&&pos[2]===1){
+        $("#one").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[0]=1;
+        chance=0;
+      }
+      //Column-2
+      else if(pos[3]===1&&pos[4]===1&&pos2[5]===0){
+        $("#six").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[5]=1;
+        chance=0;
+      }
+      else if(pos[3]===1&&pos2[4]===0&&pos[5]===1){
+        $("#five").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[4]=1;
+        chance=0;
+      }
+      else if(pos2[3]===0&&pos[4]===1&&pos[5]===1){
+        $("#four").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[3]=1;
+        chance=0;
+      }
+      //Column-3
+      else if(pos[6]===1&&pos[7]===1&&pos2[8]===0){
+        $("#nine").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[8]=1;
+        chance=0;
+      }
+      else if(pos[6]===1&&pos2[7]===0&&pos[8]===1){
+        $("#eight").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[7]=1;
+        chance=0;
+      }
+      else if(pos2[6]===0&&pos[7]===1&&pos[8]===1){
+        $("#seven").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[6]=1;
+        chance=0;
+      }
+    
+    //Kills Rows
+      //Row-1
+      else if(pos[0]===1&&pos[3]===1&&pos2[6]===0){
+        $("#seven").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[6]=1;
+        chance=0;
+      }
+      else if(pos[0]===1&&pos2[3]===0&&pos[6]===1){
+        $("#four").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[3]=1;
+        chance=0;
+      }
+      else if(pos2[0]===0&&pos[3]===1&&pos[6]===1){
+        $("#one").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[0]=1;
+        chance=0;
+      }
+      //Row-2
+      else if(pos[1]===1&&pos[4]===1&&pos2[7]===0){
+        $("#eight").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[7]=1;
+        chance=0;
+      }
+      else if(pos[1]===1&&pos2[4]===0&&pos[7]===1){
+        $("#five").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[4]=1;
+        chance=0;
+      }
+      else if(pos2[1]===0&&pos[4]===1&&pos[7]===1){
+        $("#two").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[1]=1;
+        chance=0;
+      }
+      //Row-3
+      else if(pos[2]===1&&pos[5]===1&&pos2[8]===0){
+        $("#nine").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[8]=1;
+        chance=0;
+      }
+      else if(pos[2]===1&&pos2[5]===0&&pos[8]===1){
+        $("#six").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[5]=1;
+        chance=0;
+      }
+      else if(pos2[2]===0&&pos[5]===1&&pos[8]===1){
+        $("#three").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[2]=1;
+        chance=0;
+      }
+    
+    //Kill-Diagonals
+      //Left-Right
+      else if(pos[0]===1&&pos[4]===1&&pos2[8]===0){
+        $("#nine").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[8]=1;
+        chance=0;
+      }
+      else if(pos[0]===1&&pos2[4]===0&&pos[8]===1){
+        $("#five").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[4]=1;
+        chance=0;
+      }
+      else if(pos2[0]===0&&pos[4]===1&&pos[8]===1){
+        $("#one").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[0]=1;
+        chance=0;
+      }
+      //Right-left
+      else if(pos[6]===1&&pos[4]===1&&pos2[2]===0){
+        $("#three").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[2]=1;
+        chance=0;
+      }
+      else if(pos[6]===1&&pos2[4]===0&&pos[2]===1){
+        $("#five").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[4]=1;
+        chance=0;
+      }
+      else if(pos2[6]===0&&pos[4]===1&&pos[2]===1){
+        $("#seven").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[6]=1;
+        chance=0;
+      }
+    //If AI acquires center
+        //Conrner postions
+        else if(pos[0]===1 && pos2[8]===0 && pos[8]===0 && pos2[4]===1){
+          $("#nine").html('<font id="dummy">' + comp_choice + '</font>');
+          pos2[8]=1;
+          chance=0;
+        }
+        else if(pos[6]===1 && pos2[2]===0 && pos[2]===0 && pos2[4]===1){
+          $("#three").html('<font id="dummy">' + comp_choice + '</font>');
+          pos2[2]=1;
+          chance=0; 
+        }
+        else if(pos[2]===1 && pos2[6]===0 && pos[6]===0 && pos2[4]===1){
+          $("#seven").html('<font id="dummy">' + comp_choice + '</font>');
+          pos2[6]=1;
+          chance=0; 
+        }
+        else if(pos[8]===1 && pos2[0]===0 && pos[0]===0 && pos2[4]===1){
+          $("#one").html('<font id="dummy">' + comp_choice + '</font>');
+          pos2[0]=1;
+          chance=0; 
+        }
+        //Center positions
+        //Center-1
+        else if(pos2[4]===1 && pos[3]===1 && pos[0]===0 && pos2[0]===0){
+          if(pos2[6]===1 && pos[8]===0 && pos2[8]===0){
+            $("#nine").html('<font id="dummy">' + comp_choice + '</font>');
+            pos2[8]=1;
+            chance =0;
+          }
+          else{
+            $("#one").html('<font id="dummy">' + comp_choice + '</font>');
+            pos2[0]=1;
+            chance =0; 
+          }
+        }
+        else if(pos2[4]===1 && pos[3]===1 && pos[6]===0 && pos2[6]===0){
+          if(pos2[0]===1 && pos2[2]===0 && pos[2]===0){
+            $("#three").html('<font id="dummy">' + comp_choice + '</font>');
+            pos2[2]=1;
+            chance =0;
+          }
+          else{
+            $("#seven").html('<font id="dummy">' + comp_choice + '</font>');
+            pos2[6]=1;
+            chance =0; 
+          }
+        }
+        //Center-2
+        else if(pos2[4]===1 && pos[7]===1 && pos[6]===0 && pos2[6]===0){
+          if(pos2[8]===1 && pos[2]===0 && pos2[2]===0){
+            $("#three").html('<font id="dummy">' + comp_choice + '</font>');
+            pos2[2]=1;
+            chance =0;
+          }
+          else{
+            $("#seven").html('<font id="dummy">' + comp_choice + '</font>');
+            pos2[6]=1;
+            chance =0; 
+          }
+        }
+        else if(pos2[4]===1 && pos[7]===1 && pos[8]===0 && pos2[8]===0){
+          if(pos2[6]===1 && pos2[0]===0 && pos[0]===0){
+            $("#one").html('<font id="dummy">' + comp_choice + '</font>');
+            pos2[0]=1;
+            chance =0;
+          }
+          else{
+            $("#nine").html('<font id="dummy">' + comp_choice + '</font>');
+            pos2[8]=1;
+            chance =0; 
+          }
+        }
+        //Center-3
+        else if(pos2[4]===1 && pos[5]===1 && pos[2]===0 && pos2[2]===0){
+          if(pos2[8]===1 && pos[6]===0 && pos2[6]===0){
+            $("#seven").html('<font id="dummy">' + comp_choice + '</font>');
+            pos2[6]=1;
+            chance =0;
+          }
+          else{
+            $("#three").html('<font id="dummy">' + comp_choice + '</font>');
+            pos2[2]=1;
+            chance =0; 
+          }
+        }
+        else if(pos2[4]===1 && pos[5]===1 && pos[8]===0 && pos2[8]===0){
+          if(pos2[2]===1 && pos2[0]===0 && pos[0]===0){
+            $("#one").html('<font id="dummy">' + comp_choice + '</font>');
+            pos2[0]=1;
+            chance =0;
+            //console.log("Poop");
+          }
+          else{
+            $("#nine").html('<font id="dummy">' + comp_choice + '</font>');
+            pos2[8]=1;
+            chance =0;
+            //console.log("Poop"); 
+          }
+        }
+        //Center-4
+        else if(pos2[4]===1 && pos[1]===1 && pos[0]===0 && pos2[0]===0){
+          if(pos2[2]===1 && pos[8]===0 && pos2[8]===0){
+            $("#nine").html('<font id="dummy">' + comp_choice + '</font>');
+            pos2[8]=1;
+            chance =0;
+          }
+          else{
+            $("#one").html('<font id="dummy">' + comp_choice + '</font>');
+            pos2[0]=1;
+            chance =0; 
+          }
+        }
+        else if(pos2[4]===1 && pos[1]===1 && pos[2]===0 && pos2[2]===0){
+          if(pos2[0]===1 && pos2[6]===0 && pos[6]===0){
+            $("#seven").html('<font id="dummy">' + comp_choice + '</font>');
+            pos2[6]=1;
+            chance =0;
+          }
+          else{
+            $("#three").html('<font id="dummy">' + comp_choice + '</font>');
+            pos2[2]=1;
+            chance =0; 
+          }
+        }
+        //Center Position Independent
+        else if(pos2[4]===1 && pos[3]===1 && pos[0]===0 && pos2[0]===0){
+          $("#one").html('<font id="dummy">' + comp_choice + '</font>');
+          pos2[0]=1;
+          chance=0;
+        }
+        else if(pos2[4]===1 && pos[3]===1 && pos[6]===0 && pos2[6]===0){
+          $("#seven").html('<font id="dummy">' + comp_choice + '</font>');
+          pos2[6]=1;
+          chance=0;
+        }
+        else if(pos2[4]===1 && pos[7]===1 && pos[6]===0 && pos2[6]===0){
+          $("#seven").html('<font id="dummy">' + comp_choice + '</font>');
+          pos2[6]=1;
+          chance=0;
+        }
+        else if(pos2[4]===1 && pos[7]===1 && pos[8]===0 && pos2[8]===0){
+          $("#nine").html('<font id="dummy">' + comp_choice + '</font>');
+          pos2[8]=1;
+          chance=0;
+        }
+        else if(pos2[4]===1 && pos[5]===1 && pos[8]===0 && pos2[8]===0){
+          $("#nine").html('<font id="dummy">' + comp_choice + '</font>');
+          pos2[8]=1;
+          chance=0;
+          //console.log("Poop");
+        }
+        else if(pos2[4]===1 && pos[5]===1 && pos[2]===0 && pos2[2]===0){
+          $("#three").html('<font id="dummy">' + comp_choice + '</font>');
+          pos2[2]=1;
+          chance=0;
+          //console.log("Pos");
+        }
+        else if(pos2[4]===1 && pos[1]===1 && pos[0]===0 && pos2[0]===0){
+          $("#one").html('<font id="dummy">' + comp_choice + '</font>');
+          pos2[0]=1;
+          chance=0;
+        }
+        else if(pos2[4]===1 && pos[1]===1 && pos[2]===0 && pos2[2]===0){
+          $("#three").html('<font id="dummy">' + comp_choice + '</font>');
+          pos2[2]=1;
+          chance=0;
+        }
+    //If User doesn't acquires center
+    //Acquire Center
+      else if(pos2[4]===0 && pos[4]===0){
+        $("#five").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[4]=1;
+        chance=0;
+      }
+    //Now we will deal with some exceptions when we acquire center
+    //Exception-1
+      else if(pos2[4]===1 && pos[0]===1 && pos[8]===1 && pos[1]===0 && pos2[1]===0){
+        $("#two").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[1]=1;
+        chance=0;
+      }
+      else if(pos2[4]===1 && pos[0]===1 && pos[8]===1 && pos[5]===0 && pos2[5]===0){
+        $("#six").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[5]=1;
+        chance=0;
+      }
+      else if(pos2[4]===1 && pos[0]===1 && pos[8]===1 && pos[7]===0 && pos2[7]===0){
+        $("#eight").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[7]=1;
+        chance=0;
+      }
+      else if(pos2[4]===1 && pos[0]===1 && pos[8]===1 && pos[3]===0 && pos2[3]===0){
+        $("#four").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[3]=1;
+        chance=0;
+      }
+      else if(pos2[4]===1 && pos[2]===1 && pos[6]===1 && pos[1]===0 && pos2[1]===0){
+        $("#two").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[1]=1;
+        chance=0;
+      }
+      else if(pos2[4]===1 && pos[2]===1 && pos[6]===1 && pos[5]===0 && pos2[5]===0){
+        $("#six").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[5]=1;
+        chance=0;
+      }
+      else if(pos2[4]===1 && pos[2]===1 && pos[6]===1 && pos[7]===0 && pos2[7]===0){
+        $("#eight").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[7]=1;
+        chance=0;
+      }
+      else if(pos2[4]===1 && pos[2]===1 && pos[6]===1 && pos[3]===0 && pos2[3]===0){
+        $("#four").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[3]=1;
+        chance=0;
+      }
+    //Exception-2
+      else if(pos2[4]===1 && pos[1] ===1 && pos[3]===1 && pos[0]===0 && pos2[0]===0){
+        $("#one").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[0]=1;
+        chance=0;
+      }
+      else if(pos2[4]===1 && pos[7] ===1 && pos[3]===1 && pos[6]===0 && pos2[6]===0){
+        $("#seven").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[6]=1;
+        chance=0;
+      }
+      else if(pos2[4]===1 && pos[7] ===1 && pos[5]===1 && pos[8]===0 && pos2[8]===0){
+        $("#nine").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[8]=1;
+        chance=0;
+      }
+      else if(pos2[4]===1 && pos[1] ===1 && pos[5]===1 && pos[2]===0 && pos2[2]===0){
+        $("#three").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[2]=1;
+        chance=0;
+      }
+
+    //Acquire All the diagonals
+      else if(pos[0]===0 && pos2[0]===0){
+        $("#one").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[0]=1;
+        chance=0;
+      }
+      else if(pos[6]===0 && pos2[6]===0){
+        $("#seven").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[6]=1;
+        chance=0;
+      }
+      else if(pos[8]===0 && pos2[8]===0){
+        $("#nine").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[8]=1;
+        chance=0;
+      }
+      else if(pos[2]===0 && pos2[2]===0){
+        $("#three").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[2]=1;
+        chance=0;
+      }
+    //Acquire all the middle points
+      else if(pos[1]===0 && pos2[1]===0){
+        $("#two").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[1]=1;
+        chance=0;
+      }
+      else if(pos[3]===0 && pos2[3]===0){
+        $("#four").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[3]=1;
+        chance=0;
+      }
+      else if(pos[7]===0 && pos2[7]===0){
+        $("#eight").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[7]=1;
+        chance=0;
+      }
+      else if(pos[5]===0 && pos2[5]===0){
+        $("#six").html('<font id="dummy">' + comp_choice + '</font>');
+        pos2[5]=1;
+        chance=0;
+      }
+
+    if(checkwin()){
+      chance = -1;
+      choice = "";
+      pos = [0,0,0,0,0,0,0,0,0];
+      pos2 = [0,0,0,0,0,0,0,0,0];
+      matchstart = false;
+      comp_chance = -1;
+      comp_choice = "";
+      $("#choice1").show();
+      $("#choice2").show();
+      $("#play").show();
+      $("#one").html('');
+      $("#two").html('');
+      $("#three").html('');
+      $("#four").html('');
+      $("#five").html('');
+      $("#six").html('');
+      $("#seven").html('');
+      $("#eight").html('');
+      $("#nine").html('');
+    }
+  }
+
+  function checkwin(){
+    if(pos2[0]===1&&pos2[3]===1&&pos2[6]===1){
+      alert("Computer Wins!");
+      return true;
+    }
+    else if(pos2[1]===1&&pos2[4]===1&&pos2[7]===1){
+      alert("Computer Wins!");
+      return true;
+    }
+    else if(pos2[2]===1&&pos2[5]===1&&pos2[8]===1){
+      alert("Computer Wins!");
+      return true;
+    }
+    else if(pos2[0]===1&&pos2[1]===1&&pos2[2]===1){
+      alert("Computer Wins!");
+      return true;
+    }
+    else if(pos2[3]===1&&pos2[4]===1&&pos2[5]===1){
+      alert("Computer Wins!");
+      return true;
+    }
+    else if(pos2[6]===1&&pos2[7]===1&&pos2[8]===1){
+      alert("Computer Wins!");
+      return true;
+    }
+    else if(pos2[0]===1&&pos2[4]===1&&pos2[8]===1){
+      alert("Computer Wins!");
+      return true;
+    }
+    else if(pos2[2]===1&&pos2[4]===1&&pos2[6]===1){
+      alert("Computer Wins!");
+      return true;
+    }
+    else if(pos[0]===1&&pos[3]===1&&pos[6]===1){
+      alert("User Wins!");
+      return true;
+    }
+    else if(pos[1]===1&&pos[4]===1&&pos[7]===1){
+      alert("User Wins!");
+      return true;
+    }
+    else if(pos[2]===1&&pos[5]===1&&pos[8]===1){
+      alert("User Wins!");
+      return true;
+    }
+    else if(pos[0]===1&&pos[1]===1&&pos[2]===1){
+      alert("User Wins!");
+      return true;
+    }
+    else if(pos[3]===1&&pos[4]===1&&pos[5]===1){
+      alert("User Wins!");
+      return true;
+    }
+    else if(pos[6]===1&&pos[7]===1&&pos[8]===1){
+      alert("User Wins!");
+      return true;
+    }
+    else if(pos[0]===1&&pos[4]===1&&pos[8]===1){
+      alert("User Wins!");
+      return true;
+    }
+    else if(pos[2]===1&&pos[4]===1&&pos[6]===1){
+      alert("User Wins!");
+      return true;
+    }
+    else if((pos[0]+pos2[0])*(pos[1]+pos2[1])*(pos[2]+pos2[2])*(pos[3]+pos2[3])*(pos[4]+pos2[4])*(pos[5]+pos2[5])*(pos[6]+pos2[6])*(pos[7]+pos2[7])*(pos[8]+pos2[8]) === 1){
+      alert("Draw");
+      return true;
+    }
+    return false; 
+  }
+  /*
+  $("#one").click(function(){
+    if(matchstart && (chance === 1 && comp_chance === 1) ){
+      $("#two").html('<font id="dummy">' + choice + '</font>');
+      pos2[1] = 1;
+      chance = 0;
+    }
+  });
+  /*
+  //Start the game
+  function gamestart() {
+    $("body").hover(function(){
+      if(chance === 0){
+      console.log("User's chance");
+      $("#text2").text("Your chance!");
+      $("#one").click(function() {
+        $(this).html('<font id="dummy">' + choice + '</font>');
+        pos[0] = 1;
+        chance = 1;
+      });
+      $("#two").click(function() {
+        $(this).html('<font id="dummy">' + choice + '</font>');
+        pos[1] = 1;
+        chance = 1;
+      });
+      $("#three").click(function() {
+        $(this).html('<font id="dummy">' + choice + '</font>');
+        pos[2] = 1;
+        chance = 1;
+      });
+      $("#four").click(function() {
+        $(this).html('<font id="dummy">' + choice + '</font>');
+        pos[3] = 1;
+        chance = 1;
+      });
+      $("#five").click(function() {
+        $(this).html('<font id="dummy">' + choice + '</font>');
+        pos[4] = 1;
+        chance = 1;
+      });
+      $("#six").click(function() {
+        $(this).html('<font id="dummy">' + choice + '</font>');
+        pos[5] = 1;
+        chance = 1;
+      });
+      $("#seven").click(function() {
+        $(this).html('<font id="dummy">' + choice + '</font>');
+        pos[6] = 1;
+        chance = 1;
+      });
+      $("#eight").click(function() {
+        $(this).html('<font id="dummy">' + choice + '</font>');
+        pos[7] = 1;
+        chance = 1;
+      });
+      $("#nine").click(function(){
+        $(this).html('<font id="dummy">' + choice + '</font>');
+        pos[8] = 1;
+        chance = 1;
+      });
+
+      }
+      else if(chance === 1){
+        var comp_choice;
+        if(choice == "X") comp_choice = "O";
+        else comp_choice = "X";
+        //Algo starts
+        console.log(pos);
+        $("#three").html('<font id="dummy">' + comp_choice + '</font>');
+        //Algo Ends
+        chance = 0;
+      }
+    });
+    
+  } //Function gamestart() Ends
+  
+
+  //Checkwin() starts
+  */
+});
