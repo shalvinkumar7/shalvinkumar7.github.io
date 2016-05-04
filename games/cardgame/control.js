@@ -37,7 +37,11 @@ $(document).ready(function(){
     }
 
     function endCheck(){
-        if($("#cards_number_1").text=="0 cards left") return false;
+        if($("#cards_number_1").text=="0 cards left"){
+            alert("Game over! No one won! :(");
+            location.reload(true);
+            return false;
+        }
         else return true;
     }
     function distributor(){
