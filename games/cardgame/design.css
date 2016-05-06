@@ -72,6 +72,7 @@ body{
 	border-color: #0B3C4D;
 	top:175px;
 	left:190px;
+	z-index: 1000;
 }
 #num_top,#num_top_2{
 	font-size: 50px;
@@ -107,6 +108,7 @@ body{
 	border-color: #0B3C4D;
 	top:175px;
 	left:850px;
+	z-index: 0;
 }
 #cards_number_main{
 	position: absolute;

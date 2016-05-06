@@ -65,6 +65,8 @@ $(document).ready(function(){
 
     function cpu_play(){
         $("#cards_number_2").text(arr_deck_player2.length-1+" cards left");
+        $("#animator_player_1").css("z-index","0");
+        $("#animator_player_2").css("z-index","1000");
         cpuMove();
         chance += 1;
         $("#card_player_1").css("border-color","#009C24");
@@ -85,6 +87,7 @@ $(document).ready(function(){
             
             arr_deck_gameplay.push(String(temp));
             //alert(temp);
+            /*
             if(temp[0]=="0"){
                 $("#deck_type").html("&diams;");
                 $("#num_top").css("color","red");
@@ -115,6 +118,9 @@ $(document).ready(function(){
 
             $("#num_top").text(temp_num);
             $("#num_bottom").text(temp_num);
+            */
+            var destination_string = '"img/'+temp+'.jpg"';
+            $('#animator_player_1').html('<img width="250px" height="320px" src='+destination_string+'/>');
 
         }   
         if(chance%2!=0){
@@ -127,6 +133,7 @@ $(document).ready(function(){
             }
             
             arr_deck_gameplay.push(String(temp));
+            /*
             if(temp[0]=="0"){
                 $("#deck_type_2").html("&diams;");
                 $("#num_top_2").css("color","red");
@@ -154,9 +161,12 @@ $(document).ready(function(){
 
             var temp_num = temp.substring(1);
             temp_num = parseInt(temp_num);
-
+            
             $("#num_top_2").text(temp_num);
             $("#num_bottom_2").text(temp_num);
+            */
+            var destination_string = '"img/'+temp+'.jpg"';
+            $('#animator_player_2').html('<img width="250px" height="320px" src='+destination_string+'/>');
         }
         console.log("Gameplay deck is "+arr_deck_gameplay);
         console.log("Did we find same_card_found? "+same_card_found);
@@ -237,6 +247,10 @@ $(document).ready(function(){
             player_done = 0;
             $("#animator_player_1").hide();
             $("#cards_number_1").text(arr_deck_player1.length-1+" cards left");
+            $("#animator_player_1").css("z-index","1000");    
+            $("#animator_player_2").css("z-index","0");
+                    
+
             //Animation part
             myMove();
 
