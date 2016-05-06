@@ -1,3 +1,69 @@
+//Trying to preload all the images before to avoid latency 
+function preload(arrayOfImages) {
+    $(arrayOfImages).each(function(){
+        $('<img/>')[0].src = this;
+        // Alternatively you could use:
+        // (new Image()).src = this;
+    });
+}
+
+// Usage:
+
+preload([
+    'img/001.jpg',
+    'img/002.jpg',
+    'img/003.jpg',
+    'img/004.jpg',
+    'img/005.jpg',
+    'img/006.jpg',
+    'img/007.jpg',
+    'img/008.jpg',
+    'img/009.jpg',
+    'img/010.jpg',
+    'img/011.jpg',
+    'img/012.jpg',
+    'img/013.jpg',
+    'img/101.jpg',
+    'img/102.jpg',
+    'img/103.jpg',
+    'img/104.jpg',
+    'img/105.jpg',
+    'img/106.jpg',
+    'img/107.jpg',
+    'img/108.jpg',
+    'img/109.jpg',
+    'img/110.jpg',
+    'img/111.jpg',
+    'img/112.jpg',
+    'img/113.jpg',
+    'img/201.jpg',
+    'img/202.jpg',
+    'img/203.jpg',
+    'img/204.jpg',
+    'img/205.jpg',
+    'img/206.jpg',
+    'img/207.jpg',
+    'img/208.jpg',
+    'img/209.jpg',
+    'img/210.jpg',
+    'img/211.jpg',
+    'img/212.jpg',
+    'img/213.jpg',
+    'img/301.jpg',
+    'img/302.jpg',
+    'img/303.jpg',
+    'img/304.jpg',
+    'img/305.jpg',
+    'img/306.jpg',
+    'img/307.jpg',
+    'img/308.jpg',
+    'img/309.jpg',
+    'img/310.jpg',
+    'img/311.jpg',
+    'img/312.jpg',
+    'img/313.jpg'
+]);
+
 $(document).ready(function(){
 	var gamestart = 0;
 	var chance = 0;
