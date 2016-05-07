@@ -113,7 +113,7 @@ $(document).ready(function(){
             location.reload(true);
             return false;
         }
-        else if(arr_deck_player2.length != 0 && arr_deck_player1.length == 0){
+        else if(arr_deck_player1.length != 0 && arr_deck_player2.length == 0){
             alert("Player-1 Won");
             location.reload(true);
             return false;
