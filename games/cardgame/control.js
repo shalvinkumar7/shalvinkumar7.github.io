@@ -103,8 +103,18 @@ $(document).ready(function(){
     }
 
     function endCheck(){
-        if($("#cards_number_1").text=="0 cards left"){
+        if(arr_deck_player1.length == 0 && arr_deck_player2.length == 0){
             alert("Game over! No one won! :(");
+            location.reload(true);
+            return false;
+        }
+        else if(arr_deck_player1.length == 0 && arr_deck_player2.length != 0){
+            alert("Player-2 Won!");
+            location.reload(true);
+            return false;
+        }
+        else if(arr_deck_player2.length != 0 && arr_deck_player1.length == 0){
+            alert("Player-1 Won");
             location.reload(true);
             return false;
         }
@@ -249,6 +259,7 @@ $(document).ready(function(){
             if (pos == 523) {
                 clearInterval(id);
                 if(same_card_found == 1){
+                    $("#game_status").text("Shuffled");
                     arr_deck_player1 = arr_deck_player1.concat(arr_deck_gameplay);
                     arr_deck_gameplay = [];
                     arr_deck_player1 = shuffler(arr_deck_player1);
@@ -277,7 +288,9 @@ $(document).ready(function(){
             if (pos == 523) {
                 clearInterval(id);
                 $("#animator_player_1").hide();
+                $("#game_status").text("");
                 if(same_card_found == 1){
+                    $("#game_status").text("Shuffled");
                     arr_deck_player2 = arr_deck_player2.concat(arr_deck_gameplay);
                     arr_deck_gameplay = [];
                     arr_deck_player2 = shuffler(arr_deck_player2);
@@ -287,6 +300,7 @@ $(document).ready(function(){
                     $("#animator_player_2").hide();
                     same_card_found = 0;
                 }
+                var ran = endCheck();
                 player_done = 1;
             } else {
                 pos--; 
@@ -312,6 +326,7 @@ $(document).ready(function(){
         if(chance%2==0 && player_done==1 && same_card_found==0 && endCheck()){
             player_done = 0;
             $("#animator_player_1").hide();
+            $("#game_status").text("");
             $("#cards_number_1").text(arr_deck_player1.length-1+" cards left");
             $("#animator_player_1").css("z-index","1000");    
             $("#animator_player_2").css("z-index","0");

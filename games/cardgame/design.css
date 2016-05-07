@@ -131,3 +131,10 @@ body{
 	font-size: 20px;
 	font-family: 'PT Serif', serif;	
 }
+#game_status{
+	font-family: 'PT Serif', serif;
+	font-size: 30px;
+	position: absolute;
+	top:100px;
+	left: 595px;
+}
