@@ -1,0 +1,97 @@
+#main_board{
+	border-width: 5px;
+	border-style: double;
+	border-color: black;
+	width: 700px; /* Make it screen size dependent*/
+	height: 700px; /* Make it screen size dependent*/
+	position: absolute;
+	top: 2%;
+	left:20%;
+
+}
+
+#player1{
+	background: #1e2c42;
+    width: 40px; /* Make it board size dependent*/
+    height: 40px; /* Make it board size dependent*/
+    border-radius: 50%;
+    position: absolute;
+    top: 83.8%; /* First cell is at top 83.8% */
+    left:22%; /* First cell is at left 22% */
+}
+/* We need to find horizontal and vertical distance between two cells. */
+/* Second cell is at left 26.5%. Thus, it makes about 4.5% for each cell */ 
+/* Checking it for third cell --- 26.5+4.5=31 isn't working. 31.5% is working fine. */
+/* Checking it for fourth cell --- 31.5 + 5 = 36.5. A bit more than expected. Let's take average of 4.5 and 5 = 4.75% */
+/* Checking it for fifth cell --- 36.25 + 4.75 = 41 */
+/* Okay, lets do all five cells with starting at 22% (c1) and 4.75% gap */
+
+/****Horizontal check***/
+/* c1 - 22% - Y */
+/* c2 - 26.75% - Y */
+/* c3 - 31.5% - Y */
+/* c4 - 36.25% - Y */
+
+/* Horizontal - 4.75% */ 
+
+/* Cell20 is at top 75.4% 83.8-75.4=8.4% */
+
+/* Vertical - (-)8.4% */
+
+
+#player2{
+	background: #1e2c42;
+    width: 40px; /* Make it board size dependent*/
+    height: 40px; /* Make it board size dependent*/
+    border-radius: 50%;
+    position: absolute;
+    top: 80.5%; /* First cell is at top 80.5% */
+    left: 22%; /* First cell is at left 22% */
+}
+
+#identity1{
+	color: white;
+	position: absolute;
+	top: -22%;
+	left: 41%;
+}
+
+#identity2{
+	color: white;
+	position: absolute;
+	top: -22%;
+	left: 41%;
+}
+
+#roll_button{
+	background: #1e2c42;
+	width: 130px;
+	height: 40px;
+	position: absolute;
+	border-radius: 5%;
+	left:79%;
+	top:40%;
+}
+
+#identity_roll_button{
+	color: white;
+	position: absolute;
+	top: -22%;
+	left: 33%;	
+}
+
+#screen{
+	border-style: dotted;
+	border-color: #1e2c42;
+	position: absolute;
+	width: 154px;
+	height: 110px;
+	top: 23%;
+	left:78%;
+}
+
+#dice{
+	position: absolute;
+	top: 25.4%;
+	left:80.7%;	
+}
