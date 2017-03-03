@@ -1,3 +1,23 @@
+function preload(arrayOfImages) {
+    $(arrayOfImages).each(function(){
+        $('<img/>')[0].src = this;
+        // Alternatively you could use:
+        // (new Image()).src = this;
+    });
+}
+
+
+preload([
+    'images/1.png',
+    'images/2.png',
+    'images/3.png',
+    'images/4.png',
+    'images/5.png',
+    'images/6.png'
+]);
+
+
+
 $(document).ready(function(){	
     console.log("This is working");
     /*setTimeout(function(){
